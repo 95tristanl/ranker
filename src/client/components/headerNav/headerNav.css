@@ -1,0 +1,30 @@
+h1 {
+  color: green;
+  display: flex;
+  justify-content: center;
+}
+
+nav {
+    background-color: gray;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav li {
+    color: blue;
+    padding: 5px 5px 5px 5px;
+    margin: 0px 50px 0px 50px;
+    border-right: 1px solid #bbb;
+    border-left: 1px solid #bbb;
+}
+
+nav li:hover {
+    background-color: white;
+    color: black;
+}
