@@ -17,7 +17,7 @@ const voteList = (props) => {
 
                 />
     });
-    return <ul>{list}</ul>;
+    return <ul className="list">{list}</ul>;
 }
 
 export default voteList;

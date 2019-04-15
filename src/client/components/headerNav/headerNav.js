@@ -3,14 +3,16 @@ import { NavLink } from "react-router-dom";
 import "./headerNav.css";
 
 const headerNav = (props) => (
-    <div>
-        <header><h1>Ranker</h1></header>
-        <nav>
+    <div className="navHead_container">
+        <header className="header">
+            <h1 className="title">Ranker</h1>
+        </header>
+        <nav className="navbar">
             <ul>
-                <li><NavLink to="/home">Home</NavLink></li>
-                <li><NavLink to="/submit">Submit</NavLink></li>
-                <li><NavLink to="/vote">Vote</NavLink></li>
-                <li><NavLink to="/chart">Chart</NavLink></li>
+                <li><NavLink className="link" to="/home">Home</NavLink></li>
+                <li><NavLink className="link" to="/submit">Submit</NavLink></li>
+                <li><NavLink className="link" to="/vote">Vote</NavLink></li>
+                <li><NavLink className="link" to="/chart">Chart</NavLink></li>
             </ul>
         </nav>
     </div>

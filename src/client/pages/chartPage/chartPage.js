@@ -37,9 +37,6 @@ class ChartPage extends Component { //export default
     render() {
         return (
             <div>
-                <div>
-                    <p className="separator">RANKED LIST</p>
-                </div>
                 <RankList content_R={this.state.content_ranked}/>
             </div>
         );

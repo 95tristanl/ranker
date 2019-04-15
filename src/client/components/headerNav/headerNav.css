@@ -1,14 +1,31 @@
-h1 {
-  color: green;
+
+.navHead_container {
+    color: ;
+}
+
+.header {
+    background-color: #052A3A;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border: 1px solid #DCDCDC;
+}
+
+.title {
+  color: #FFFFFF;
   display: flex;
   justify-content: center;
+  margin: 0;
+  padding: 0;
 }
 
-nav {
-    background-color: gray;
+.navbar {
+    background-color: #055D72;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #DCDCDC;
 }
 
-nav ul {
+.navbar ul {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -16,15 +33,32 @@ nav ul {
     justify-content: space-between;
 }
 
-nav li {
-    color: blue;
-    padding: 5px 5px 5px 5px;
+.navbar li {
+    padding: 10px 10px 10px 10px;
     margin: 0px 50px 0px 50px;
-    border-right: 1px solid #bbb;
-    border-left: 1px solid #bbb;
+    border-right: 2px solid #DCDCDC;
+    border-left: 2px solid #DCDCDC;
 }
 
-nav li:hover {
+.navbar li:hover {
     background-color: white;
-    color: black;
+}
+
+.navbar li:active {
+    background-color: #071108;
+}
+
+a {
+    text-decoration: none;
+    color: #DCDCDC;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #071108;
+}
+
+a:active {
+    text-decoration: none;
+    color: #DCDCDC;
 }

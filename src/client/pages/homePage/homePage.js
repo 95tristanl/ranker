@@ -8,8 +8,8 @@ class HomePage extends Component { //export default
 
     render() {
         return (
-            <div>
-                <p className="separator">HOME PAGE</p>
+            <div className="homePage">
+                <h1>Just A Simple React App</h1>
             </div>
         );
     }

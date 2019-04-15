@@ -12,15 +12,6 @@ class SubmitPage extends Component {
         };
     }
 
-    //componentDidMount() {
-    //    this.setState({song: new Howl({}) });
-    //}
-
-    logData = () => {
-        console.log("Log:");
-        console.log(this.state);
-    }
-
     discardForm = () => {
         this.setState({handle: "", content: ""});
         this.handle_ref.current.value = "";
@@ -68,25 +59,23 @@ class SubmitPage extends Component {
 
     render() {
         return (
-            <div>
-                <div>
-                    <p className="separator">SUBMIT CONTENT</p>
-                </div>
-
-                <div className="submit_form">
+            <div className="submit_form">
+                <div className="form_block">
                     <div className="form_section">
-                        <label htmlFor="form_handle">Handle Name</label>
-                        <input name="handle" type="text" id="form_handle"
+                        <label className="form_label_1" htmlFor="form_handle">Handle:</label>
+                        <input className="input_1" name="handle" type="text" id="form_handle"
                             onChange={this.updateFormData} ref={this.handle_ref}/>
                     </div>
                     <div className="form_section">
-                        <label htmlFor="form_content">Content</label>
-                        <input name="content" type="text" id="form_content"
+                        <label className="form_label_2" htmlFor="form_content">Content:</label>
+                        <input className="input_2" name="content" type="text" id="form_content"
                             onChange={this.updateFormData} ref={this.content_ref}/>
                     </div>
-                    <button onClick={this.postContent}>Submit</button>
-                    <button onClick={this.discardForm}>Discard</button>
-                    <button onClick={this.logData}>Log</button>
+                </div>
+
+                <div className="btns">
+                    <button className="btn1" onClick={this.postContent}>Submit</button>
+                    <button className="btn2" onClick={this.discardForm}>Discard</button>
                 </div>
             </div>
         );

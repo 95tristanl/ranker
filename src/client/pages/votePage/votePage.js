@@ -66,9 +66,6 @@ class VotePage extends Component { //export default
     render() {
         return (
             <div>
-                <div>
-                    <p className="separator">VOTE LIST</p>
-                </div>
                 <VoteList
                     voteFunc={this.castVoteFunc}
                     content_V={this.state.content_toVote}

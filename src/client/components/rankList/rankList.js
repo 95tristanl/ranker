@@ -13,7 +13,7 @@ const rankList = (props) => {
                     inappropriate={item.inappropriate}
                 />
     });
-    return <ul>{list}</ul>;
+    return <ul className="list">{list}</ul>;
 }
 
 export default rankList;

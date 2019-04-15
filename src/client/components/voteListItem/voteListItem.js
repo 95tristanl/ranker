@@ -12,18 +12,25 @@ const voteListItem = (props) => {
     }
 
     return (
-        <li>
+        <li className="each_item">
             {props.vote !== "-" && (
-            <div>
-                <p>{"Index: " + props.ind}</p>
-                <p>{"Handle: " + props.handle}</p>
-                <p>{"Content: " + props.content}</p>
-                <p>{"Ups: " + upvotes + " Downs: " + downvotes}</p>
+            <div className="content">
+                <div className="text">
+                    <p className="text_1">{props.handle + ": "}</p>
+                    <p>{props.content}</p>
+                </div>
+                <div className="votes">
+                    <p className="ups">{"Ups: " + upvotes}</p>
+                    <p className="downs">{"Downs: " + downvotes}</p>
+                </div>
             </div> )}
-            {props.vote === "-" && (<div><p>{"Content: " + props.content}</p></div>)}
-            {props.vote === "-" && (<button onClick={props.onVote.bind(this, "up", props.ind)}>UP_vote</button>)}
-            {props.vote === "-" && (<button onClick={props.onVote.bind(this, "dn", props.ind)}>DOWN_vote</button>)}
-            {props.vote === "-" && (<button onClick={props.onVote.bind(this, "in", props.ind)}>Report/Inappropriate</button>)}
+            {props.vote === "-" && (<div className="content"><p>{props.content}</p></div>)}
+            {props.vote === "-" && (<button className="btn1"
+            onClick={props.onVote.bind(this, "up", props.ind)}>Up</button>)}
+            {props.vote === "-" && (<button className="btn2"
+            onClick={props.onVote.bind(this, "dn", props.ind)}>Down</button>)}
+            {props.vote === "-" && (<button className="btn3"
+            onClick={props.onVote.bind(this, "in", props.ind)}>REPORT</button>)}
         </li>
     );
 }
