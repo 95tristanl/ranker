@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import VoteList from '../../components/voteList/voteList.js';
+import AuthContext from "../../context/context.js";
 import './votePage.css';
 
 class VotePage extends Component { //export default
+    static contextType = AuthContext;
+
     constructor() {
         super();
         this.state = {
@@ -12,15 +15,20 @@ class VotePage extends Component { //export default
     }
 
     componentDidMount() {
+        console.log("CDM:");
+        console.log(this.context.alreadyVoted);
         this.content_voteList();
     }
 
     castVoteFunc = (vote, index) => {
         console.log("Voted: " + vote + " index: " + index);
+        let contentId = this.state.content_toVote[index]._id;
         let list = this.state.toVote_StateArray;
         list[index] = vote;
         this.setState({toVote_StateArray: list});
-        let contentId = this.state.content_toVote[index]._id;
+        this.context.updateContext(this.state.content_toVote[index]);
+        console.log("already");
+        console.log(this.context.alreadyVoted);
 
         fetch(`http://localhost:8080/castVote${vote+"_"+contentId}`, {
             method: 'POST',
@@ -42,9 +50,11 @@ class VotePage extends Component { //export default
     //get songs to vote on from server
     content_voteList = () => {
         console.log("Trying to get songs for voting");
+        let lst = {lst: this.context.alreadyVoted};
 
         fetch('http://localhost:8080/getVoteContent',{ // { credentials: 'include' } if using cookies and such
-            method: 'GET',
+            method: 'POST',
+            body: JSON.stringify(lst),
             headers: {'Content-Type': 'application/json'}
         }).then(res => {
             if (res.status !== 200 && res.status !== 201) {

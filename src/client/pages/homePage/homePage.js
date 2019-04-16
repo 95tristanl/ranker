@@ -9,7 +9,7 @@ class HomePage extends Component { //export default
     render() {
         return (
             <div className="homePage">
-                <h1>Just A Simple React App</h1>
+                <h1 className="homePage_title">Just A Simple React App</h1>
             </div>
         );
     }

@@ -3,14 +3,10 @@ const Upload = require("./models/upload");
 
 exports.getVoteContent = async (req, res, next) => {
     console.log("Trying to get songs to vote on...");
+    console.log(req.body);
+    console.log(req.body.lst);
     try {
-        //let songs = [];
-        //let ids = [];
-        //for (let i = 0; i < 3; i++) {
-        let content = await Upload.find().limit(2); //One({_id: {$nin: ids}});
-            //songs.push(song);
-            //ids.push(song._id);
-        //}
+        let content = await Upload.find({_id: {$nin: req.body.lst}}).limit(10);
         console.log(content);
         res.status(201).send({content});
     } catch (err) {
@@ -21,7 +17,7 @@ exports.getVoteContent = async (req, res, next) => {
 exports.getRankedContent = async (req, res, next) => {
     console.log("Trying get ranked songs...");
     try {
-        let content = await Upload.find().sort('-upvotes').limit(5);
+        let content = await Upload.find().sort('-upvotes').limit(10);
         console.log(content);
         res.status(201).send({content});
     } catch (err) {

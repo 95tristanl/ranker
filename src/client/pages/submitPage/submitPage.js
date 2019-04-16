@@ -28,17 +28,17 @@ class SubmitPage extends Component {
     }
 
     //post/submit a song to server
-    postContent = async () => {
+    postContent = () => {
         console.log("posting content...");
 
         let postedContent = {
             handle: this.state.handle,
             content: this.state.content
-        }
+        };
 
         this.discardForm();
 
-        await fetch('http://localhost:8080/postContent', {// postSong { credentials: 'include' } if using cookies and such
+        fetch('http://localhost:8080/postContent', {// postSong { credentials: 'include' } if using cookies and such
             method: 'POST',
             body: JSON.stringify(postedContent),
             headers: {
