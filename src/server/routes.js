@@ -3,8 +3,6 @@ const Upload = require("./models/upload");
 
 exports.getVoteContent = async (req, res, next) => {
     console.log("Trying to get songs to vote on...");
-    console.log(req.body);
-    console.log(req.body.lst);
     try {
         let content = await Upload.find({_id: {$nin: req.body.lst}}).limit(10);
         console.log(content);

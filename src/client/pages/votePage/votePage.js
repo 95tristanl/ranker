@@ -15,20 +15,15 @@ class VotePage extends Component { //export default
     }
 
     componentDidMount() {
-        console.log("CDM:");
-        console.log(this.context.alreadyVoted);
         this.content_voteList();
     }
 
     castVoteFunc = (vote, index) => {
-        console.log("Voted: " + vote + " index: " + index);
         let contentId = this.state.content_toVote[index]._id;
         let list = this.state.toVote_StateArray;
         list[index] = vote;
         this.setState({toVote_StateArray: list});
         this.context.updateContext(this.state.content_toVote[index]);
-        console.log("already");
-        console.log(this.context.alreadyVoted);
 
         fetch(`http://localhost:8080/castVote${vote+"_"+contentId}`, {
             method: 'POST',
