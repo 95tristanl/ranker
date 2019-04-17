@@ -35,6 +35,8 @@
     border: 1px solid white;
 }
 
+.btn1:focus {outline:0;}
+.btn2:focus {outline:0;}
 
 .btn1:hover,
 .btn1:active {
@@ -43,7 +45,7 @@
 
 .btn2:hover,
 .btn2:active {
-    background: #E60120; 
+    background: #E60120;
 }
 
 .form_label_1 {

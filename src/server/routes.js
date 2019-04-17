@@ -15,7 +15,7 @@ exports.getVoteContent = async (req, res, next) => {
 exports.getRankedContent = async (req, res, next) => {
     console.log("Trying get ranked songs...");
     try {
-        let content = await Upload.find().sort('-upvotes').limit(10);
+        let content = await Upload.find().sort('-upvotes').limit(5+parseInt(req.params.timesVoted));
         console.log(content);
         res.status(201).send({content});
     } catch (err) {

@@ -24,6 +24,7 @@ class VotePage extends Component { //export default
         list[index] = vote;
         this.setState({toVote_StateArray: list});
         this.context.updateContext(this.state.content_toVote[index]);
+        this.context.updateTimesVoted();
 
         fetch(`http://localhost:8080/castVote${vote+"_"+contentId}`, {
             method: 'POST',

@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import RankList from '../../components/rankList/rankList.js';
+import AuthContext from "../../context/context.js";
 import './chartPage.css';
 
 class ChartPage extends Component { //export default
+    static contextType = AuthContext;
+
     constructor() {
         super();
         this.state = {
@@ -18,7 +21,7 @@ class ChartPage extends Component { //export default
     content_rankList = () => {
         console.log("Trying to get top songs");
 
-        fetch('http://localhost:8080/getRankedContent',{ // { credentials: 'include' } if using cookies and such
+        fetch(`http://localhost:8080/getRankedContent${this.context.timesVoted}`,{ // { credentials: 'include' } if using cookies and such
             method: 'GET',
             headers: {'Content-Type': 'application/json'}
         }).then(res => {

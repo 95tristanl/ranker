@@ -20,7 +20,7 @@ const startServer = async () => {
     });
 
     app.post("/getVoteContent", Routes.getVoteContent);
-    app.get("/getRankedContent", Routes.getRankedContent);
+    app.get("/getRankedContent:timesVoted", Routes.getRankedContent);
     app.post("/postContent", Routes.postContent);
     app.post("/castVote:contentId", Routes.castVote);
 

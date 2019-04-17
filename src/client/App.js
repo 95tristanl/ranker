@@ -10,7 +10,8 @@ import AuthContext from "./context/context.js";
 
 class App extends Component {
     state = {
-        alreadyVoted: []
+        alreadyVoted: [],
+        timesVoted: 0
     };
 
     updateContext = (item) => {
@@ -19,13 +20,19 @@ class App extends Component {
         this.setState({alreadyVoted: lst});
     }
 
+    updateTimesVoted = () => {
+        this.setState({timesVoted: this.state.timesVoted + 1});
+    }
+
     render() {
         return(
             <BrowserRouter>
                 <AuthContext.Provider
                     value={{
                         alreadyVoted: this.state.alreadyVoted,
-                        updateContext: this.updateContext
+                        updateContext: this.updateContext,
+                        timesVoted: this.state.timesVoted,
+                        updateTimesVoted: this.updateTimesVoted
                     }}>
                     <HeaderNav/>
                     <Switch>
