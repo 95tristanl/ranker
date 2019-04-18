@@ -5,7 +5,7 @@ Simple react app that allows people to rank submitted content
 
 Home page is a simple entry page with no functionality. 
 
-Can submit content in Submit page.
+Can submit content and a user's handle in Submit page.
 
 Can bring up content to vote on in Vote Page. Before you vote it will only show the content. 
 After you vote the submitter's handle and the amount of up and down votes will be shown. For
