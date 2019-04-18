@@ -19,4 +19,4 @@ Chart Page displays 5 most upvoted content items from the DB. As you vote on con
 Vote Page, the Chart Page will display more content items. 
 
 Since this app does not store any account-like schema in the db and does not uses sessions, 
-tokens or cookies, state is lost entirely once you leave the app. 
+or cookies, state is lost entirely once you leave the app. 
