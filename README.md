@@ -10,7 +10,7 @@ Can submit content and a user's handle in Submit page.
 Can bring up content to vote on in Vote Page. Before you vote it will only show the content. 
 After you vote the submitter's handle and the amount of up and down votes will be shown. For
 each vote you cast, you can see one more ranked content item in the Chart Page. If the report 
-vote reaches 5 votes, it deletes the content item entry from the DB. The Vote Page does not
+vote reaches 5 votes, the content item (db schema) is deleted from the DB. The Vote Page does not
 save state entirely. If you come back to it without leaving the app itself, it will not bring
 up content you have already voted on, but previous content you have already voted on will not 
 be shown as it was after you had cast your vote.
