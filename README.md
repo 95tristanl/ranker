@@ -1,5 +1,5 @@
 # ranker
-simply react app that allows people to rank submitted content
+Simple react app that allows people to rank submitted content
 
 4 pages: Home, Submit, Vote, Chart
 
