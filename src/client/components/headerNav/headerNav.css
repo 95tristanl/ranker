@@ -1,8 +1,3 @@
-
-.navHead_container {
-    color: ;
-}
-
 .header {
     background-color: #052A3A;
     padding-top: 30px;
@@ -16,6 +11,7 @@
   justify-content: center;
   margin: 0;
   padding: 0;
+  font-size: calc(4vw + 20px);
 }
 
 .navbar {
@@ -30,12 +26,11 @@
     padding: 0;
     list-style: none;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .navbar li {
     padding: 10px 10px 10px 10px;
-    margin: 0px 50px 0px 50px;
     border-right: 2px solid #DCDCDC;
     border-left: 2px solid #DCDCDC;
 }

@@ -32,7 +32,6 @@ const startServer = async () => {
         process.exit(-1);
     }
 
-
     app.listen(process.env.PORT || 8080, () => {
         console.log(`Listening on port ${process.env.PORT || 8080}!`);
     });

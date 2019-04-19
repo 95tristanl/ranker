@@ -5,7 +5,6 @@ exports.getVoteContent = async (req, res, next) => {
     console.log("Trying to get songs to vote on...");
     try {
         let content = await Upload.find({_id: {$nin: req.body.lst}}).limit(10);
-        console.log(content);
         res.status(201).send({content});
     } catch (err) {
         console.log(err);
@@ -16,7 +15,6 @@ exports.getRankedContent = async (req, res, next) => {
     console.log("Trying get ranked songs...");
     try {
         let content = await Upload.find().sort('-upvotes').limit(5+parseInt(req.params.timesVoted));
-        console.log(content);
         res.status(201).send({content});
     } catch (err) {
         console.log(err);
@@ -40,8 +38,7 @@ exports.postContent = async (req, res, next) => {
 }
 
 exports.castVote = async (req, res, next) => {
-    console.log("Trying to cast content vote...");
-    console.log("ID: " + req.params.contentId);
+    console.log("Trying to cast content vote for ID: " + req.params.contentId + "...");
     let data = req.params.contentId.split("_");
     try {
         let doc = await Upload.findById(data[1]);
