@@ -1,10 +1,97 @@
 const mongoose = require("mongoose");
 const Upload = require("./models/upload");
+const User = require("./models/user");
+
+exports.validateHandle = async (req, res, next) => {
+    console.log("Trying to find handle " + req.params.handle + "...");
+    try {
+        await User.findOne({"handle": req.params.handle}, function(err, existing) {
+            if (err) {
+                console.log("Error");
+            } else {
+                console.log("Ex?");
+                console.log(existing);
+                console.log("Ex?");
+                if (existing) {
+                    console.log("Handle already exists");
+                    res.status(409).send({error: "Error: Handle already exists"});
+                } else {
+                    console.log("valid Handle");
+                    res.status(200).send({});
+                }
+            }
+        });
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+exports.register = async (req, res, next) => {
+    console.log("Trying to register " + req.body.handle + "...");
+    try {
+        let user = await new User({
+            _id: new mongoose.Types.ObjectId(),
+            fullName: req.body.fullName,
+            email: req.body.email,
+            handle: req.body.handle,
+            salt: "tmp",
+            hash: "tmp"
+        });
+        user.set('password', req.body.password);
+        await user.save();
+        console.log("Registered " + req.body.handle + " user to Mongo!");
+        res.status(200).send({});
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+exports.login = async (req, res, next) => {
+    console.log(req.body.handle + " is trying login...");
+    try {
+        await User.findOne({"handle": req.body.handle}, function(err, user) {
+            if (err) {
+                console.log("Error");
+            } else {
+                if (user && user.authenticate(req.body.password)){
+                    let creds = {
+                        name: user.fullName,
+                        email: user.email,
+                        handle: user.handle
+                    };
+                    console.log("found!");
+                    console.log(creds);
+                    res.status(201).send({creds});
+                } else {
+                    console.log("Wrong Username or Password");
+                    res.status(409).send({error: 'Unauthorized: Wrong Username or Password'});
+                }
+            }
+        });
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+exports.getUsersPosts = async (req, res, next) => {
+    console.log("Trying get " + req.params.handle + " posts...");
+    try {
+        await Upload.find({"handle": req.params.handle}, function(err, posts) {
+            if (err) {
+                console.log(err);
+            } else {
+                res.status(201).send({posts: posts});
+            }
+        });
+    } catch (err) {
+        console.log(err);
+    }
+}
 
 exports.getVoteContent = async (req, res, next) => {
-    console.log("Trying to get songs to vote on...");
+    console.log(req.params.handle + " is trying to get songs to vote on...");
     try {
-        let content = await Upload.find({_id: {$nin: req.body.lst}}).limit(10);
+        let content = await Upload.find({_id: {$nin: req.body.lst}, "handle": {$nin: req.params.handle}}).limit(10);
         res.status(201).send({content});
     } catch (err) {
         console.log(err);

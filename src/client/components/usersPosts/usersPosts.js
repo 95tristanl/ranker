@@ -1,10 +1,10 @@
 import React from 'react';
-import './rankList.css';
-import RankListItem from '../rankListItem/rankListItem.js';
+import './usersPosts.css';
+import UsersPostsItem from '../usersPostsItem/usersPostsItem.js';
 
-const rankList = (props) => {
-    let list = props.content_R.map(item => {
-        return <RankListItem
+const usersPosts = (props) => {
+    let list = props.posts.map(item => {
+        return <UsersPostsItem
                     key={item._id}
                     handle={item.handle}
                     content={item.content}
@@ -15,4 +15,4 @@ const rankList = (props) => {
     return <ul className="list">{list}</ul>;
 }
 
-export default rankList;
+export default usersPosts;

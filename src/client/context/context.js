@@ -5,4 +5,10 @@ export default React.createContext({
     updateContext: (item) => {},
     timesVoted: 0,
     updateTimesVoted: () => {},
+    isLoggedIn: false,
+    updateLoggedIn: (bool) => {},
+    usersName: "",
+    usersEmail: "",
+    usersHandle: "",
+    setUsersCreds: (name, email, handle) => {}
 });

@@ -11,7 +11,11 @@ import AuthContext from "./context/context.js";
 class App extends Component {
     state = {
         alreadyVoted: [],
-        timesVoted: 0
+        timesVoted: 0,
+        isLoggedIn: false,
+        usersName: "",
+        usersEmail: "",
+        usersHandle: ""
     };
 
     updateContext = (item) => {
@@ -24,6 +28,16 @@ class App extends Component {
         this.setState({timesVoted: this.state.timesVoted + 1});
     }
 
+    updateLoggedIn = (bool) => {
+        this.setState({isLoggedIn: bool});
+    }
+
+    setUsersCreds = (name, email, handle) => {
+        this.setState({usersName: name});
+        this.setState({usersEmail: email});
+        this.setState({usersHandle: handle});
+    }
+
     render() {
         return(
             <BrowserRouter>
@@ -32,7 +46,13 @@ class App extends Component {
                         alreadyVoted: this.state.alreadyVoted,
                         updateContext: this.updateContext,
                         timesVoted: this.state.timesVoted,
-                        updateTimesVoted: this.updateTimesVoted
+                        updateTimesVoted: this.updateTimesVoted,
+                        isLoggedIn: this.state.isLoggedIn,
+                        updateLoggedIn: this.updateLoggedIn,
+                        usersName: this.state.usersName,
+                        usersEmail: this.state.usersEmail,
+                        usersHandle: this.state.usersHandle,
+                        setUsersCreds: this.setUsersCreds
                     }}>
                     <HeaderNav/>
                     <Switch>

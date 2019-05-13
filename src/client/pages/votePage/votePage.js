@@ -48,7 +48,7 @@ class VotePage extends Component { //export default
         console.log("Trying to get songs for voting");
         let lst = {lst: this.context.alreadyVoted};
 
-        fetch('http://localhost:8080/getVoteContent',{ // { credentials: 'include' } if using cookies and such
+        fetch(`http://localhost:8080/getVoteContent${this.context.usersHandle}`,{ // { credentials: 'include' } if using cookies and such
             method: 'POST',
             body: JSON.stringify(lst),
             headers: {'Content-Type': 'application/json'}
@@ -72,11 +72,14 @@ class VotePage extends Component { //export default
     render() {
         return (
             <div>
-                <VoteList
-                    voteFunc={this.castVoteFunc}
-                    content_V={this.state.content_toVote}
-                    votes={this.state.toVote_StateArray}
-                />
+                { this.context.isLoggedIn &&
+                    <VoteList
+                        voteFunc={this.castVoteFunc}
+                        content_V={this.state.content_toVote}
+                        votes={this.state.toVote_StateArray}
+                    />
+                }
+                {!this.context.isLoggedIn && <div>Log in to Vote on content</div>}
             </div>
         );
     }

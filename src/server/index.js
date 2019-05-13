@@ -19,13 +19,17 @@ const startServer = async () => {
         next(); //req can continue its journey
     });
 
-    app.post("/getVoteContent", Routes.getVoteContent);
+    app.post("/getVoteContent:handle", Routes.getVoteContent);
     app.get("/getRankedContent:timesVoted", Routes.getRankedContent);
     app.post("/postContent", Routes.postContent);
     app.post("/castVote:contentId", Routes.castVote);
+    app.post("/register", Routes.register);
+    app.post("/login", Routes.login);
+    app.get("/validateHandle:handle", Routes.validateHandle);
+    app.get("/getUsersPosts:handle", Routes.getUsersPosts);
 
     try {
-        await mongoose.connect("mongodb://localhost:32772/songrank", {useNewUrlParser: true});
+        await mongoose.connect("mongodb://localhost:32768/ranker", {useNewUrlParser: true});
         console.log("Mongoose connected!");
     } catch (err) {
         console.log("Could not connect to mongo...");
