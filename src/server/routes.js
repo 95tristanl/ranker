@@ -9,9 +9,6 @@ exports.validateHandle = async (req, res, next) => {
             if (err) {
                 console.log("Error");
             } else {
-                console.log("Ex?");
-                console.log(existing);
-                console.log("Ex?");
                 if (existing) {
                     console.log("Handle already exists");
                     res.status(409).send({error: "Error: Handle already exists"});
@@ -59,8 +56,8 @@ exports.login = async (req, res, next) => {
                         email: user.email,
                         handle: user.handle
                     };
-                    console.log("found!");
-                    console.log(creds);
+                    //console.log("found!");
+                    //console.log(creds);
                     res.status(201).send({creds});
                 } else {
                     console.log("Wrong Username or Password");

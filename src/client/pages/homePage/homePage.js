@@ -290,7 +290,7 @@ class HomePage extends Component { //export default
                                         </div>
                                         <div className="form_section">
                                             <label className="form_label" htmlFor="reg_pass">Password:</label>
-                                            <input className="input_feild" name="reg_pass" type="text" id="reg_pass"
+                                            <input className="input_feild" name="reg_pass" type="password" id="reg_pass"
                                                 onChange={this.updateFormData} ref={this.reg_pass_ref}/>
                                         </div>
                                 </div>
@@ -305,7 +305,7 @@ class HomePage extends Component { //export default
                                         </div>
                                         <div className="form_section">
                                             <label className="form_label" htmlFor="login_pass">Password:</label>
-                                            <input className="input_feild" name="login_pass" type="text" id="login_pass"
+                                            <input className="input_feild" name="login_pass" type="password" id="login_pass"
                                                 onChange={this.updateFormData} ref={this.login_pass_ref}/>
                                         </div>
                                 </div>
