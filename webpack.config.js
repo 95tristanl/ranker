@@ -32,9 +32,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin([outputDirectory]),
     htmlPlugin
-  ]
-  /*
-  ,
+  ],
   resolve: {
     extensions: ['*', '.js', '.jsx']
   },
@@ -45,5 +43,4 @@ module.exports = {
       '/api': 'http://localhost:8080'
     }
   }
-  */
 };

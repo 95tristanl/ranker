@@ -29,7 +29,7 @@ const startServer = async () => {
     app.get("/getUsersPosts:handle", Routes.getUsersPosts);
 
     try {
-        await mongoose.connect("mongodb://localhost:32768/ranker", {useNewUrlParser: true});
+        await mongoose.connect("mongodb://localhost:32769/ranker", {useNewUrlParser: true});
         console.log("Mongoose connected!");
     } catch (err) {
         console.log("Could not connect to mongo...");
