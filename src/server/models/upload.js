@@ -6,7 +6,6 @@ const uploadSchema = mongoose.Schema({
     content: {type: String, default: ""},
     upvotes: {type: Number, default: 0},
     downvotes: {type: Number, default: 0},
-    voteNet: {type: Number, default: 0},
     inappropriate: {type: Number, default: 0}
 });
 
